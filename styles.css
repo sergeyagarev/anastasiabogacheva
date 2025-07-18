@@ -1,0 +1,185 @@
+/* Общие настройки */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #241f20;
+  background: linear-gradient(-45deg, #fdbfac, #ffb4d2, #cdcaff, #c9f6fa);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* Шапка */
+.header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.profile {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  transform: translateY(-50px);
+  opacity: 0;
+  animation: dropIn 1s ease forwards;
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dropIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateX(30px);
+  animation: slideInRight 1s ease forwards;
+  animation-delay: 0.3s;
+}
+.phone-link {
+  color: inherit; /* чтобы сохранить цвет текста */
+  text-decoration: none;
+}
+.geo-link {
+  text-decoration: none;
+  color: inherit;
+}
+.email-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.phone-link:hover {
+  text-decoration: underline;
+  color: forestgreen;
+}
+
+/* Основное содержимое */
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.about h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.experience h2,
+.projects h2,
+.education h2,
+.languages h2,
+.skills h2 {
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+.experience ul,
+.projects ol {
+  list-style-position: inside;
+  padding-left: 20px;
+}
+
+/* Подвал */
+.footer {
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.social-links a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.qr-code {
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-image {
+    margin-bottom: 10px;
+  }
+
+  .contact-info {
+    text-align: center;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-links {
+    margin-bottom: 10px;
+  }
+}
